@@ -6,6 +6,18 @@ Autor: Ivon Luiz C M Garcia
 Data: 05/08/2023
 */
 
+session_start();
+
+// Verifique se o usuário está logado
+$usuario_logado = isset($_SESSION['usuario_logado']) && $_SESSION['usuario_logado'] === true;
+
+// Exiba a mensagem de boas-vindas se o usuário estiver logado
+if ($usuario_logado) {
+    $nome_usuario = $_SESSION['nome'];
+    echo "<p>Olá, $nome_usuario! Bem-vindo de volta ao nosso site.</p>";
+}
+
+
 $pagina = 'home';
 
 if(isset($_GET['i'])){
@@ -49,9 +61,13 @@ switch($pagina){
         include 'app/views/terra.php';
         break;
             
-    case 'registros':
-        include 'app/views/registros.php';
+    case 'exercicios':
+        include 'app/views/exercicios.php';
         break;
+
+/*     case 'registrar':
+        include 'app/views/registrar.php';
+        break; */
         
     default:
         include 'app/views/home.php';
@@ -60,3 +76,4 @@ switch($pagina){
 
 /* Carrega o rodapé */
 include 'app/views/footer.php';
+?>

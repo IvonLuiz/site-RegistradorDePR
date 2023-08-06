@@ -56,13 +56,18 @@ body {
     background-color: #e4e4e4;
 }
 
-/* .container {
 
-} */
 
 #main{
     background: linear-gradient(135deg, #e4e4e4 0%, #0E0454 200%);
 }
+
+
+.botaoExibirQuandoLogado {
+    display: none;
+
+}
+
 
 .carousel-container{
     height: 700px;
@@ -94,18 +99,7 @@ body {
     border-bottom: 1px;
     border-color: #14067A;
     border-style: solid;
-    background-image: url("imgs/grito.png");
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
