@@ -19,11 +19,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             
             session_start();
 
+            // Avisar que o usuário está logado
             $_SESSION["user_id"] = $usuario["id"];
             $_SESSION["nome"] = $usuario["nome"];
             $_SESSION['usuario_logado'] = true;
 
-            header("Location: index.php");
+            header("Location: ../index.php");
             exit;
         }
     }

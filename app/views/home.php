@@ -1,4 +1,4 @@
-<!-- Coloque esse elemento no lugar onde deseja usar a variável em JavaScript -->
+<!-- Setar usuario logado para usar em JavaScript -->
 <div id="usuario-logado" data-valor="<?php echo $usuario_logado ? 'true' : 'false'; ?>"></div>
 
 
@@ -17,11 +17,20 @@
                 <p class="lead text-muted text-center text-md-start mt-3">
                     Para poder progredir no treino, é preciso se manter firme com seu progresso, para isso, mantenha atualizado seus novos recordes pessoais e compare com os antigos!
                 </p>
-
+                
+                <?php 
+                if (isset($_SESSION['usuario_logado']) && $_SESSION['usuario_logado'] === true){
+                    $nome_usuario = $_SESSION['nome'];
+                    echo "<p class='lead text-muted text-center text-md-start mt-3'>Olá, $nome_usuario! Bem-vindo de volta ao nosso site.</p>";
+                }
+                ?>
+                <p>
+                    
+                </p>
                 <div class="mt-5">
                     <!-- Botões para usuários logados -->
                     <div class="botaoExibirQuandoLogado">
-                        <a href="logout.php" class="btn btn-primary btn-lg" role="button">Desconectar</a>
+                        <a href="usudata/logout.php" class="btn btn-primary btn-lg" role="button">Desconectar</a>
 
                         <a href="?i=exercicios" class="btn btn-primary btn-lg" role="button">Registrar novos recordes</a>
                     </div>
@@ -150,7 +159,7 @@
 
                     
                     <h1 class="text-center">Login</h1>
-                    <form method="post" action="login.php" id="login" novalidate>
+                    <form method="post" action="usuData/login.php" id="login" novalidate>
                         <div class="mb-3 mt-3">
                             <label for="email">Endereço de e-mail</label>
                             <input type="email" class="form-control" name="email">
@@ -181,23 +190,23 @@
                 <!-- Espaço para inputs -->
                 <div class="myform bg-dark">
                     <h1 class="text-center">Registre-se</h1>
-                    <form method="post" action="processar-registro.php" id="signup" novalidate>
+                    <form action="usuData/processar-registro.php" method="post" id="signup" novalidate>
                         <div class="mb-3 mt-3">
                             <label for="Nome">Nome de usuário</label>
-                            <input type="text" class="form-control" name="nome">
+                            <input type="text" class="form-control" id="nome" name="nome">
                         </div>
                     
                         <div class="mb-3 mt-3">
                             <label for="email">Endereço de e-mail</label>
-                            <input type="email" class="form-control" name="email">
+                            <input type="email" class="form-control" id="email" name="email">
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="password">Senha</label>
-                            <input type="password" class="form-control" name="senha">
+                            <input type="password" class="form-control" id="senha" name="senha">
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="password_confirmacao">Repita a senha</label>
-                            <input type="password" class="form-control" name="senha_confirmacao">
+                            <input type="password" class="form-control" id="senha_confirmacao" name="senha_confirmacao">
                         </div>
 
                         <div>

@@ -53,7 +53,7 @@ $stmt -> bind_param("sss",
 /* Executar a inserção */
 try {
     if ($stmt->execute()) {
-        header("Location: index.php?i=exercicios");
+        header("Location: ../index.php");
         exit; // É importante sair do script após o redirecionamento para evitar que o código continue sendo executado.
 
     }
